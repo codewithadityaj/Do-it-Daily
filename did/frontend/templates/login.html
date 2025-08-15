@@ -194,10 +194,10 @@
   <header class="navbar">
     <div class="logo">Do It Daily</div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="security.html">Security</a>
-      <a href="login.html" class="active">Login</a>
+       <a href="/index" class="active">Home</a>
+      <a href="/features">Features</a>
+      <a href="/security">Security</a>
+      <a href="/login">Login</a>
     </nav>
   </header>
 
@@ -216,10 +216,11 @@
           <input type="number" id="age" placeholder="Age" min="1" max="120" required />
           <button type="submit">Start Your Adventure</button>
         </form>
-        <div class="social-signup">
+      <!--  <div class="social-signup">
           <button type="button" class="social-btn google-btn">Login with Google</button>
           <button type="button" class="social-btn apple-btn">Login with Apple</button>
-        </div>
+        </div> 
+      -->
         <div class="forgot-password">
           <a href="#">Forgot Password?</a>
         </div>
@@ -232,11 +233,11 @@
       e.preventDefault();
       const age = parseInt(document.getElementById('age').value, 10);
       if (age < 13) {
-        window.location.href = 'child.html';
+        window.location.href = '/child';
       } else if (age >= 13 && age <= 17) {
-        window.location.href = 'teen.html';
+        window.location.href = '/teen';
       } else if (age >= 18 && age <= 100) {
-        window.location.href = 'adult.html';
+        window.location.href = '/adult';
       }
     });
   </script>

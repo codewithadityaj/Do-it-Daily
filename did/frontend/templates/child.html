@@ -221,9 +221,9 @@
   <header class="navbar">
     <div class="logo">Do It Daily</div>
     <nav>
-      <a href="child-progress.html">Progress</a>
-      <a href="child-challenges.html">Daily Challenges</a>
-      <a href="child-rewards.html">Rewards</a>
+      <a href="/child/progress">Progress</a>
+      <a href="/child/challenges">Daily Challenges</a>
+      <a href="/child/rewards">Rewards</a>
     </nav>
   </header>
 
@@ -235,28 +235,34 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
-        <img src="images/Tracking.png" alt="Progress Tracking" class="fun-icon">
+        {% load static %}
+        <img src="{% static 'images/Progress.png' %}" alt="Progress Tracking" class="fun-icon">
+
         <h2 class="fun-title">Progress Tracking</h2>
         <p class="fun-description">See your daily progress and keep your streaks going strong! Watch your growth every day.</p>
-        <a href="child-progress.html" class="fun-button">View Progress 📈</a>
+        <a href="/child/progress" class="fun-button">View Progress 📈</a>
       </div>
       <div class="fun-card">
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
-        <img src="images/Daily Challenges.png" alt="Daily Challenges" class="fun-icon">
+        {% load static %}
+        <img src="{% static 'images/Daily Challenges.png' %}" alt="Daily Challenges" class="fun-icon">
+        
         <h2 class="fun-title">Daily Challenges</h2>
         <p class="fun-description">Take on fun daily quests and earn badges! Every day is a new adventure.</p>
-        <a href="child-challenges.html" class="fun-button">See Challenges ⭐</a>
+        <a href="/child/challenges" class="fun-button">See Challenges ⭐</a>
       </div>
       <div class="fun-card">
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
-        <img src="images/Rewards.png" alt="Rewards" class="fun-icon">
+        {% load static %}
+        <img src="{% static 'images/Rewards.png' %}" alt="Rewards" class="fun-icon">
+        
         <h2 class="fun-title">Rewards</h2>
         <p class="fun-description">Earn points and unlock awesome rewards for your hard work and dedication!</p>
-        <a href="child-rewards.html" class="fun-button">See Rewards 🎁</a>
+        <a href="/child/rewards" class="fun-button">See Rewards 🎁</a>
       </div>
     </div>
   </section>

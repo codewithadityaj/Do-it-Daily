@@ -34,7 +34,7 @@
       font-size: 3.5rem;
       margin-bottom: 20px;
       background: linear-gradient(45deg, #ffd700, #ffa500);
-      -webkit-background-clip: text;
+
       -webkit-text-fill-color: transparent;
     }
 
@@ -97,7 +97,7 @@
       font-size: 2.5rem;
       margin-bottom: 30px;
       background: linear-gradient(45deg, #4CAF50, #45a049);
-      -webkit-background-clip: text;
+
       -webkit-text-fill-color: transparent;
     }
 
@@ -233,9 +233,9 @@
   <header class="navbar">
     <div class="logo">Do It Daily</div>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="features.html">Features</a>
-      <a href="security.html">Security</a>
+      <a href="/index" class="active">Home</a>
+      <a href="/features">Features</a>
+      <a href="/security">Security</a>
       <a href="/login">Login</a>
     </nav>
   </header>
@@ -262,7 +262,8 @@
     <div class="features-grid">
       <div class="feature-card">
         <div class="image-box">
-          <img src="images/Progress.png" alt="Track Progress">
+          {% load static %}
+          <img src="{% static 'images/Progress.png' %}" alt="Track Progress">
         </div>
         <div class="content-box">
           <h3 class="feature-title">Track Your Progress</h3>
@@ -271,7 +272,8 @@
       </div>
       <div class="feature-card">
         <div class="image-box">
-          <img src="images/Calender.png" alt="Access Calendar">
+          {% load static %}
+          <img src="{% static 'images/Calender.png' %}" alt="Access Calendar" >
         </div>
         <div class="content-box">
           <h3 class="feature-title">Access Your Calendar</h3>
@@ -280,7 +282,9 @@
       </div>
       <div class="feature-card">
         <div class="image-box">
-          <img src="images/Analytics.png" alt="View Analytics">
+          {% load static %}
+          <img src="{% static 'images/Analytics.png' %}" alt="View Analytics">
+          
         </div>
         <div class="content-box">
           <h3 class="feature-title">View Analytics</h3>
@@ -298,7 +302,8 @@
     <div class="security-grid">
       <div class="security-card">
         <div class="image-box">
-          <img src="images/Secure Access.png" alt="Secure Access">
+          {% load static %}
+          <img src="{% static 'images/Secure Access.png' %}" alt="Two-Factor Authentication">
         </div>
         <div class="content-box">
           <h3 class="security-title">Secure Access</h3>
@@ -307,7 +312,8 @@
       </div>
       <div class="security-card">
         <div class="image-box">
-          <img src="images/Recovery.png" alt="Quick Recovery">
+          {% load static %}
+          <img src="{% static 'images/Recovery.png' %}" alt="Quick Recovery">
         </div>
         <div class="content-box">
           <h3 class="security-title">Quick Recovery</h3>
@@ -316,7 +322,8 @@
       </div>
       <div class="security-card">
         <div class="image-box">
-          <img src="images/Privacy Control.png" alt="Privacy Control">
+          {% load static %}
+          <img src="{% static 'images/Privacy Control.png' %}" alt="Privacy Control">
         </div>
         <div class="content-box">
           <h3 class="security-title">Privacy Control</h3>
