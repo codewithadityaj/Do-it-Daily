@@ -1,0 +1,10 @@
+# created by virtualenv automatically
+# Ignore Python cache
+__pycache__/
+
+# Ignore OS files
+.DS_Store
+
+git add .gitignore
+git add .
+

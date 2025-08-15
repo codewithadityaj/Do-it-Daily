@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teen Rewards - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #2196F3;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2196F3;
+    }
+    .rewards-section {
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      color: #1976D2;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .rewards-scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      min-width: 800px;
+    }
+    .reward-card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(33, 150, 243, 0.10);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      min-width: 350px;
+    }
+    .reward-card:hover {
+      transform: translateY(-10px);
+    }
+    .reward-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .reward-card:hover .reward-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .reward-title {
+      font-size: 1.4rem;
+      color: #2196F3;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .reward-points {
+      background: #FFD700;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .reward-description {
+      color: #555;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+    .reward-button {
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin-top: 15px;
+    }
+    .reward-button:hover {
+      background: #1976D2;
+      transform: scale(1.05);
+    }
+    @media (max-width: 900px) {
+      .rewards-grid {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+    }
+    .teen-footer {
+      background: linear-gradient(90deg, #E3F2FD 0%, #BBDEFB 100%);
+      padding: 40px 0 30px 0;
+      margin-top: 60px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -4px 24px rgba(33, 150, 243, 0.10);
+    }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-mascot {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(33, 150, 243, 0.15);
+      margin-right: 10px;
+    }
+    .footer-title {
+      font-size: 2rem;
+      color: #1976D2;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .footer-message {
+      font-size: 1.1rem;
+      color: #555;
+      font-family: 'Comic Sans MS', cursive;
+      max-width: 400px;
+    }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-mascot { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="teen-progress.html">Progress</a>
+      <a href="teen-challenges.html">Daily Challenges</a>
+      <a href="teen-rewards.html" class="active">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="rewards-section">
+    <h1 class="section-title">Your Rewards 🎁</h1>
+    <div class="rewards-scroll-container">
+      <div class="rewards-grid">
+        <div class="reward-card">
+          <img src="images/Card Teens.png" alt="Gift Card" class="reward-icon">
+          <h2 class="reward-title">Gift Card</h2>
+          <div class="reward-points">200 Points</div>
+          <p class="reward-description">Redeem for a digital gift card to your favorite store.</p>
+          <button class="reward-button">Claim Reward! 🎁</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Badges Teens.png" alt="Profile Badge" class="reward-icon">
+          <h2 class="reward-title">Profile Badge</h2>
+          <div class="reward-points">100 Points</div>
+          <p class="reward-description">Show off your achievements with a custom profile badge.</p>
+          <button class="reward-button">Get Badge! 🏅</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Theme Teens.png" alt="Theme Unlock" class="reward-icon">
+          <h2 class="reward-title">Theme Unlock</h2>
+          <div class="reward-points">150 Points</div>
+          <p class="reward-description">Unlock a new color theme for your dashboard.</p>
+          <button class="reward-button">Unlock Theme! 🎨</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Stickers Teens.png" alt="Sticker Pack" class="reward-icon">
+          <h2 class="reward-title">Sticker Pack</h2>
+          <div class="reward-points">80 Points</div>
+          <p class="reward-description">Collect a fun pack of digital stickers for your profile.</p>
+          <button class="reward-button">Get Stickers! 🏷️</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Outfit Teens.png" alt="Avatar Outfit" class="reward-icon">
+          <h2 class="reward-title">Avatar Outfit</h2>
+          <div class="reward-points">120 Points</div>
+          <p class="reward-description">Dress up your avatar with a new outfit.</p>
+          <button class="reward-button">Get Outfit! 👕</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Box Teens.png" alt="Surprise Box" class="reward-icon">
+          <h2 class="reward-title">Surprise Box</h2>
+          <div class="reward-points">180 Points</div>
+          <p class="reward-description">Open a box for a random surprise reward!</p>
+          <button class="reward-button">Open Box! 🎁</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playful Footer Section for Teens -->
+  <footer class="teen-footer">
+    <div class="footer-content">
+    
+      <div>
+        <h2 class="footer-title">Stay Consistent, Level Up! 🚀</h2>
+        <p class="footer-message">Every day is a new chance to improve. Keep building your streak and unlock your best self!</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 

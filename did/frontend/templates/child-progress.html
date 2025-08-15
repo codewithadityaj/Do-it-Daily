@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progress Tracking - Kids Zone</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #FF6B6B;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FF6B6B;
+    }
+    .progress-section {
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #FF6B6B;
+      margin: 40px 0 20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .progress-scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      min-width: 800px;
+    }
+    .progress-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(255, 182, 193, 0.15);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      min-width: 350px;
+    }
+    .progress-card:hover {
+      transform: translateY(-10px);
+    }
+    .progress-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .progress-card:hover .progress-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .progress-title {
+      font-size: 1.5rem;
+      color: #FF6B6B;
+      margin-bottom: 15px;
+    }
+    .progress-value {
+      font-size: 2rem;
+      color: #4CAF50;
+      margin: 20px 0 10px 0;
+      font-weight: bold;
+    }
+    .progress-description {
+      color: #666;
+      margin: 10px 0 0 0;
+      line-height: 1.6;
+    }
+    .streak-badge {
+      background: #FFD700;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+    }
+    .child-section {
+      background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+      min-height: calc(100vh - 60px);
+      padding: 40px 20px;
+    }
+    .center-card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+    }
+    .fun-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+      position: relative;
+      width: 350px;
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+    }
+    .fun-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .fun-title {
+      font-size: 1.8rem;
+      color: #FF6B6B;
+      margin-bottom: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .fun-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: bubble 4s ease-in-out infinite;
+    }
+    .bubble:nth-child(1) { width: 50px; height: 50px; top: 10%; left: 10%; animation-delay: 0s; }
+    .bubble:nth-child(2) { width: 30px; height: 30px; top: 20%; right: 20%; animation-delay: 1s; }
+    .bubble:nth-child(3) { width: 40px; height: 40px; bottom: 15%; left: 15%; animation-delay: 2s; }
+    @keyframes bubble {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.1); }
+    }
+    @media (max-width: 600px) {
+      .fun-card { width: 95vw; padding: 20px 5px; }
+    }
+    @media (max-width: 900px) {
+      .progress-grid {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="child-progress.html" class="active">Progress</a>
+      <a href="child-challenges.html">Daily Challenges</a>
+      <a href="child-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="progress-section">
+    <h1 class="section-title">Your Progress Journey! 🚀</h1>
+    <div class="progress-scroll-container">
+      <div class="progress-grid">
+        <div class="progress-card">
+          <img src="images/Daily Streaks.png" alt="Daily Streak" class="progress-icon">
+          <h2 class="progress-title">Daily Streak</h2>
+          <div class="progress-value">🔥 7 Days</div>
+          <p class="progress-description">Keep your streak going! Every day counts.</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Complete Task.png" alt="Completed Tasks" class="progress-icon">
+          <h2 class="progress-title">Completed Tasks</h2>
+          <div class="progress-value">✅ 15</div>
+          <p class="progress-description">Tasks completed this week. Awesome job!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Points Earned.png" alt="Points Earned" class="progress-icon">
+          <h2 class="progress-title">Points Earned</h2>
+          <div class="progress-value">⭐ 250</div>
+          <p class="progress-description">Points collected this month. Keep it up!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Badges Collected.png" alt="Badges Collected" class="progress-icon">
+          <h2 class="progress-title">Badges Collected</h2>
+          <div class="progress-value">🏅 3</div>
+          <p class="progress-description">You've earned 3 badges so far. Collect more!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Long Streaks.png" alt="Longest Streak" class="progress-icon">
+          <h2 class="progress-title">Longest Streak</h2>
+          <div class="progress-value">🔥 12 Days</div>
+          <p class="progress-description">Your longest streak ever. Can you beat it?</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Complete Challenges.png" alt="Challenges Completed" class="progress-icon">
+          <h2 class="progress-title">Challenges Completed</h2>
+          <div class="progress-value">🎯 20</div>
+          <p class="progress-description">Total challenges completed. You're a star!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 

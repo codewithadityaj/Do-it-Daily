@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adult Dashboard - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #4CAF50;
+    }
+
+    .navbar a.active {
+      color: #4CAF50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .adult-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: calc(100vh - 60px);
+      padding: 40px 20px;
+    }
+
+    .adult-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .dashboard-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #e9ecef;
+    }
+
+    .dashboard-card:hover {
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .dashboard-icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .dashboard-title {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .dashboard-description {
+      color: #6c757d;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .dashboard-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .dashboard-button:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #6c757d;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: #e9ecef;
+      border-radius: 3px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #4CAF50;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+
+    @media (max-width: 768px) {
+      .adult-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    .adult-footer {
+      background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 40px 0 30px 0;
+      margin-top: 60px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -4px 24px rgba(44, 62, 80, 0.08);
+    }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
+      margin-right: 10px;
+    }
+    .footer-title {
+      font-size: 1.7rem;
+      color: #2c3e50;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px rgba(44,62,80,0.05);
+    }
+    .footer-message {
+      font-size: 1.05rem;
+      color: #6c757d;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 400px;
+    }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-icon { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="adult-progress.html">Progress</a>
+      <a href="adult-challenges.html">Daily Challenges</a>
+      <a href="adult-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="adult-section">
+    <h1 class="section-title">Productivity Dashboard</h1>
+    <p class="section-subtitle">Track your progress, manage tasks, and achieve your goals with our professional tools.</p>
+    
+    <div class="adult-container">
+      <div class="dashboard-card">
+        <img src="images/Progress Adult.png" alt="Progress Tracking" class="dashboard-icon">
+        <h2 class="dashboard-title">Progress Tracking</h2>
+        <p class="dashboard-description">Monitor your daily habits and track your progress with detailed analytics and insights.</p>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 75%"></div>
+        </div>
+        <div class="progress-stats">
+          <span>Weekly Progress</span>
+          <span>75% Complete</span>
+        </div>
+        <a href="adult-progress.html" class="dashboard-button">View Analytics</a>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Task Adult.png" alt="Task Management" class="dashboard-icon">
+        <h2 class="dashboard-title">Task Management</h2>
+        <p class="dashboard-description">Organize and prioritize your daily tasks with our efficient management system.</p>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 60%"></div>
+        </div>
+        <div class="progress-stats">
+          <span>Daily Tasks</span>
+          <span>6/10 Completed</span>
+        </div>
+        <a href="adult-challenges.html" class="dashboard-button">Manage Tasks</a>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Achivement Adult.png" alt="Achievement System" class="dashboard-icon">
+        <h2 class="dashboard-title">Achievement System</h2>
+        <p class="dashboard-description">Track your milestones and earn recognition for your accomplishments.</p>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 85%"></div>
+        </div>
+        <div class="progress-stats">
+          <span>Monthly Goals</span>
+          <span>17/20 Achieved</span>
+        </div>
+        <a href="adult-rewards.html" class="dashboard-button">View Achievements</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motivational Footer Section for Adults -->
+  <footer class="adult-footer">
+    <div class="footer-content">
+      
+      <div>
+        <h2 class="footer-title">Keep Moving Forward! 💼</h2>
+        <p class="footer-message">Consistency is the key to success. Every small habit brings you closer to your goals. Stay focused and keep achieving!</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

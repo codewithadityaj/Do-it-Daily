@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Security - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .security-section {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      padding: 80px 20px;
+      min-height: calc(100vh - 60px);
+    }
+
+    .security-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .security-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.5s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .security-card:nth-child(1) { animation-delay: 0.1s; }
+    .security-card:nth-child(2) { animation-delay: 0.2s; }
+    .security-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .security-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .security-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .security-card:hover .security-icon {
+      transform: scale(1.1);
+    }
+
+    .security-title {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .security-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .security-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .security-features li {
+      padding: 8px 0;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .security-features li::before {
+      content: "🔒";
+      font-size: 1.2em;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 50px;
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .security-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #4CAF50;
+    }
+
+    .navbar a.active {
+      color: #4CAF50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="security.html" class="active">Security</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="security-section">
+    <h1 class="section-title">Your Security is Our Priority</h1>
+    <p class="section-subtitle">We implement industry-leading security measures to protect your data and ensure a safe experience.</p>
+    
+    <div class="security-container">
+      <div class="security-card">
+        <img src="images/Secure Access.png" alt="Secure Access" class="security-icon">
+        <h2 class="security-title">Secure Access</h2>
+        <p class="security-description">Your account is protected with advanced security measures.</p>
+        <ul class="security-features">
+          <li>Two-factor authentication</li>
+          <li>Encrypted data transmission</li>
+          <li>Secure password policies</li>
+          <li>Regular security audits</li>
+        </ul>
+      </div>
+
+      <div class="security-card">
+        <img src="images/Recovery.png" alt="Quick Recovery" class="security-icon">
+        <h2 class="security-title">Quick Recovery</h2>
+        <p class="security-description">Easy and secure account recovery options.</p>
+        <ul class="security-features">
+          <li>Email verification</li>
+          <li>Backup codes</li>
+          <li>Recovery questions</li>
+          <li>24/7 support access</li>
+        </ul>
+      </div>
+
+      <div class="security-card">
+        <img src="images/Privacy Control.png" alt="Privacy Control" class="security-icon">
+        <h2 class="security-title">Privacy Control</h2>
+        <p class="security-description">You have full control over your data and privacy settings.</p>
+        <ul class="security-features">
+          <li>Data encryption</li>
+          <li>Privacy settings</li>
+          <li>Activity monitoring</li>
+          <li>Data export options</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 

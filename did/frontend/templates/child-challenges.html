@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Challenges - Kids Zone</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #FF6B6B;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FF6B6B;
+    }
+    .challenges-section {
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #FF6B6B;
+      margin: 40px 0 20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .challenges-scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      min-width: 800px;
+    }
+    .challenge-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(255, 182, 193, 0.15);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      min-width: 350px;
+    }
+    .challenge-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #FF6B6B, #FF8E8E);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .challenge-card:hover::after {
+      transform: scaleX(1);
+    }
+    .challenge-card:hover {
+      transform: translateY(-10px);
+    }
+    .challenge-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .challenge-card:hover .challenge-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .challenge-title {
+      font-size: 1.5rem;
+      color: #FF6B6B;
+      margin-bottom: 15px;
+    }
+    .challenge-description {
+      color: #666;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+    .challenge-points {
+      background: #FFD700;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .challenge-button {
+      background: #FF6B6B;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      font-family: 'Comic Sans MS', cursive;
+      margin-top: 15px;
+    }
+    .challenge-button:hover {
+      background: #FF5252;
+      transform: scale(1.05);
+    }
+    .challenge-status {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .challenge-progress {
+      height: 8px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #FF6B6B, #FF8E8E);
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .child-section {
+      background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+      min-height: calc(100vh - 60px);
+      padding: 40px 20px;
+    }
+    .center-card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+    }
+    .fun-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+      position: relative;
+      width: 400px;
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+    }
+    .fun-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .fun-title {
+      font-size: 1.8rem;
+      color: #FF6B6B;
+      margin-bottom: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .fun-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: bubble 4s ease-in-out infinite;
+    }
+    .bubble:nth-child(1) { width: 50px; height: 50px; top: 10%; left: 10%; animation-delay: 0s; }
+    .bubble:nth-child(2) { width: 30px; height: 30px; top: 20%; right: 20%; animation-delay: 1s; }
+    .bubble:nth-child(3) { width: 40px; height: 40px; bottom: 15%; left: 15%; animation-delay: 2s; }
+    @keyframes bubble {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.1); }
+    }
+    .challenge-list {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .challenge-item {
+      background: #fffbe7;
+      border-radius: 12px;
+      padding: 15px 10px;
+      box-shadow: 0 2px 8px rgba(255, 182, 193, 0.08);
+      font-size: 1.1rem;
+      text-align: left;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @media (max-width: 600px) {
+      .fun-card { width: 95vw; padding: 20px 5px; }
+    }
+    @media (max-width: 900px) {
+      .challenges-grid {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+    }
+    .challenge-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: #FF6B6B;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 12px;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(255,107,107,0.12);
+    }
+    .challenge-badge.hot { background: #FFD700; color: #333; }
+    .challenge-badge.new { background: #4CAF50; color: #fff; }
+    .challenge-progress-bar {
+      width: 80%;
+      height: 10px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      margin: 12px auto 6px auto;
+      overflow: hidden;
+    }
+    .challenge-stars {
+      font-size: 1.1rem;
+      color: #FFD700;
+      margin-bottom: 4px;
+    }
+    .completed {
+      opacity: 0.7;
+      position: relative;
+    }
+    .completed-check {
+      color: #4CAF50;
+      font-size: 1.2em;
+      margin-left: 6px;
+    }
+    .challenge-button.completed-btn {
+      background: #bdbdbd;
+      color: #fff;
+      cursor: not-allowed;
+      font-weight: bold;
+    }
+    .challenge-card {
+      position: relative;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #FFF0E5 0%, #FFE5E5 100%);
+      padding: 40px 0 30px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-mascot {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(255, 182, 193, 0.15);
+      margin-right: 10px;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      color: #FF6B6B;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      font-family: 'Comic Sans MS', cursive;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="child-progress.html">Progress</a>
+      <a href="child-challenges.html" class="active">Daily Challenges</a>
+      <a href="child-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+     
+      <div>
+        <h1 class="hero-title">Welcome, Little Challenger! 🎉</h1>
+        <p class="hero-subtitle">Every day is a new adventure. Complete fun challenges, earn points, and become a Habit Hero!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today's Challenges Section -->
+  <section class="challenges-section">
+    <h2 class="section-title">Today's Fun Challenges! 🎯</h2>
+    <div class="challenges-scroll-container">
+      <div class="challenges-grid">
+        <div class="challenge-card" style="background: #ffe5ec;">
+          <span class="challenge-badge new">NEW!</span>
+          <img src="images/Stretch.png" alt="Super Stretch Start!" class="challenge-icon">
+          <h2 class="challenge-title">Super Stretch Start! 🧘‍♂️</h2>
+          <div class="challenge-points">+20 Points</div>
+          <p class="challenge-description">Begin your day with a 5-minute stretch. Feel like a superhero!</p>
+          <div class="challenge-progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+          <div class="challenge-stars">⭐️⭐️⭐️☆☆</div>
+          <div class="challenge-status">3/5 days completed</div>
+          <button class="challenge-button">Start Challenge! 🏃‍♂️</button>
+        </div>
+        <div class="challenge-card" style="background: #e0f7fa;">
+          <span class="challenge-badge hot">HOT!</span>
+          <img src="images/Drink Water.png" alt="Hydration Hero" class="challenge-icon">
+          <h2 class="challenge-title">Hydration Hero 💧</h2>
+          <div class="challenge-points">+25 Points</div>
+          <p class="challenge-description">Drink 2 liters of water today and power up your energy!</p>
+          <div class="challenge-progress-bar"><div class="progress-fill" style="width: 40%"></div></div>
+          <div class="challenge-stars">⭐️⭐️☆☆☆</div>
+          <div class="challenge-status">2/5 days completed</div>
+          <button class="challenge-button">Start Challenge! 💧</button>
+        </div>
+        <div class="challenge-card completed" style="background: #fff9c4; opacity: 0.7;">
+          <img src="images/Reading Book.png" alt="Reading Rockstar" class="challenge-icon">
+          <h2 class="challenge-title">Reading Rockstar 📚</h2>
+          <div class="challenge-points">+30 Points</div>
+          <p class="challenge-description">Read 10 pages of your favorite book. Imagination unlocked!</p>
+          <div class="challenge-progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+          <div class="challenge-stars">⭐️⭐️⭐️⭐️⭐️</div>
+          <div class="challenge-status">5/5 days completed <span class="completed-check">✔️</span></div>
+          <button class="challenge-button completed-btn" disabled>Completed!</button>
+        </div>
+        <div class="challenge-card" style="background: #f3e5f5;">
+          <img src="images/Room Rescue .png" alt="Room Rescue" class="challenge-icon">
+          <h2 class="challenge-title">Room Rescue 🧹</h2>
+          <div class="challenge-points">+15 Points</div>
+          <p class="challenge-description">Tidy up your room and make your bed for a fresh start!</p>
+          <div class="challenge-progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+          <div class="challenge-stars">⭐️⭐️☆☆☆</div>
+          <div class="challenge-status">2/5 days completed</div>
+          <button class="challenge-button">Start Challenge! 🧹</button>
+        </div>
+        <div class="challenge-card" style="background: #ffe0b2;">
+          <img src="images/Thinking.png" alt="Kindness Quest" class="challenge-icon">
+          <h2 class="challenge-title">Kindness Quest 🤝</h2>
+          <div class="challenge-points">+20 Points</div>
+          <p class="challenge-description">Do something kind for a friend or family member today.</p>
+          <div class="challenge-progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+          <div class="challenge-stars">⭐️☆☆☆☆</div>
+          <div class="challenge-status">1/5 days completed</div>
+          <button class="challenge-button">Start Challenge! 🤝</button>
+        </div>
+        <div class="challenge-card" style="background: #dcedc8;">
+          <img src="images/Snacks.png" alt="Snack Attack" class="challenge-icon">
+          <h2 class="challenge-title">Snack Attack 🍎</h2>
+          <div class="challenge-points">+10 Points</div>
+          <p class="challenge-description">Eat a fruit or veggie as a snack today for extra energy!</p>
+          <div class="challenge-progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+          <div class="challenge-stars">⭐️⭐️⭐️⭐️☆</div>
+          <div class="challenge-status">4/5 days completed</div>
+          <button class="challenge-button">Start Challenge! 🍎</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 

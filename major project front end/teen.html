@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teen Zone - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #4CAF50;
+    }
+
+    .navbar a.active {
+      color: #4CAF50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .teen-section {
+      background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+      min-height: calc(100vh - 60px);
+      padding: 40px 20px;
+    }
+
+    .teen-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #2196F3, #00BCD4);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
+    }
+
+    .feature-title {
+      font-size: 1.6rem;
+      color: #2196F3;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .feature-description {
+      color: #555;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .feature-button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .feature-button:hover {
+      background: #1976D2;
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #1976D2;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2196F3;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .teen-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .teen-footer {
+      background: linear-gradient(90deg, #E3F2FD 0%, #BBDEFB 100%);
+      padding: 40px 0 30px 0;
+      margin-top: 60px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -4px 24px rgba(33, 150, 243, 0.10);
+    }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-mascot {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(33, 150, 243, 0.15);
+      margin-right: 10px;
+    }
+    .footer-title {
+      font-size: 2rem;
+      color: #1976D2;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .footer-message {
+      font-size: 1.1rem;
+      color: #555;
+      font-family: 'Comic Sans MS', cursive;
+      max-width: 400px;
+    }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-mascot { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="teen-progress.html">Progress</a>
+      <a href="teen-challenges.html">Daily Challenges</a>
+      <a href="teen-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="teen-section">
+    <h1 class="section-title">Level Up Your Life</h1>
+    <p class="section-subtitle">Track your progress, complete challenges, and earn rewards while building better habits!</p>
+    
+    <div class="teen-container">
+      <div class="feature-card">
+        <img src="images/Progress Teens.png" alt="Progress Tracking" class="feature-icon">
+        <h2 class="feature-title">Progress Tracking</h2>
+        <p class="feature-description">Monitor your daily habits and see your growth with cool visualizations and stats.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">85%</div>
+            <div class="stat-label">Completion Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+        </div>
+        <a href="teen-progress.html" class="feature-button">View Progress</a>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/Challenges Teens.png" alt="Daily Challenges" class="feature-icon">
+        <h2 class="feature-title">Daily Challenges</h2>
+        <p class="feature-description">Take on exciting daily tasks and challenges to boost your productivity and skills.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Active Tasks</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Completed Today</div>
+          </div>
+        </div>
+        <a href="teen-challenges.html" class="feature-button">Start Challenge</a>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/reward Teens.png" alt="Rewards System" class="feature-icon">
+        <h2 class="feature-title">Rewards System</h2>
+        <p class="feature-description">Earn points, unlock achievements, and get cool rewards for your accomplishments.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">250</div>
+            <div class="stat-label">Points Earned</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Badges</div>
+          </div>
+        </div>
+        <a href="teen-rewards.html" class="feature-button">View Rewards</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playful Footer Section for Teens -->
+  <footer class="teen-footer">
+    <div class="footer-content">
+     
+      <div>
+        <h2 class="footer-title">Stay Consistent, Level Up! 🚀</h2>
+        <p class="footer-message">Every day is a new chance to improve. Keep building your streak and unlock your best self!</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

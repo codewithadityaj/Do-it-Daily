@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teen Progress - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #2196F3;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2196F3;
+    }
+    .progress-section {
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      color: #1976D2;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .progress-scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      min-width: 800px;
+    }
+    .progress-card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(33, 150, 243, 0.10);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      min-width: 350px;
+    }
+    .progress-card:hover {
+      transform: translateY(-10px);
+    }
+    .progress-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .progress-card:hover .progress-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .progress-title {
+      font-size: 1.4rem;
+      color: #2196F3;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .progress-value {
+      font-size: 2rem;
+      color: #43A047;
+      margin: 20px 0 10px 0;
+      font-weight: bold;
+    }
+    .progress-description {
+      color: #555;
+      margin: 10px 0 0 0;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .progress-grid {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+    }
+    .teen-footer {
+      background: linear-gradient(90deg, #E3F2FD 0%, #BBDEFB 100%);
+      padding: 40px 0 30px 0;
+      margin-top: 60px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -4px 24px rgba(33, 150, 243, 0.10);
+    }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-mascot {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(33, 150, 243, 0.15);
+      margin-right: 10px;
+    }
+    .footer-title {
+      font-size: 2rem;
+      color: #1976D2;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .footer-message {
+      font-size: 1.1rem;
+      color: #555;
+      font-family: 'Comic Sans MS', cursive;
+      max-width: 400px;
+    }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-mascot { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="teen-progress.html" class="active">Progress</a>
+      <a href="teen-challenges.html">Daily Challenges</a>
+      <a href="teen-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="progress-section">
+    <h1 class="section-title">Your Progress Journey! 🚀</h1>
+    <div class="progress-scroll-container">
+      <div class="progress-grid">
+        <div class="progress-card">
+          <img src="images/Daily Streaks Teeens.png" alt="Daily Streak" class="progress-icon">
+          <h2 class="progress-title">Daily Streak</h2>
+          <div class="progress-value">🔥 10 Days</div>
+          <p class="progress-description">Keep your streak going! Every day counts.</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Complete Teens.png" alt="Completed Tasks" class="progress-icon">
+          <h2 class="progress-title">Completed Tasks</h2>
+          <div class="progress-value">✅ 22</div>
+          <p class="progress-description">Tasks completed this week. Awesome job!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Point earn Teens.png" alt="Points Earned" class="progress-icon">
+          <h2 class="progress-title">Points Earned</h2>
+          <div class="progress-value">⭐ 340</div>
+          <p class="progress-description">Points collected this month. Keep it up!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Badge collect Teens.png" alt="Badges Collected" class="progress-icon">
+          <h2 class="progress-title">Badges Collected</h2>
+          <div class="progress-value">🏅 5</div>
+          <p class="progress-description">You've earned 5 badges so far. Collect more!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Long Streak Teens.png" alt="Longest Streak" class="progress-icon">
+          <h2 class="progress-title">Longest Streak</h2>
+          <div class="progress-value">🔥 18 Days</div>
+          <p class="progress-description">Your longest streak ever. Can you beat it?</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Challenges Complete Teens.png" alt="Challenges Completed" class="progress-icon">
+          <h2 class="progress-title">Challenges Completed</h2>
+          <div class="progress-value">🎯 30</div>
+          <p class="progress-description">Total challenges completed. You're a star!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playful Footer Section for Teens -->
+  <footer class="teen-footer">
+    <div class="footer-content">
+     
+      <div>
+        <h2 class="footer-title">Stay Consistent, Level Up! 🚀</h2>
+        <p class="footer-message">Every day is a new chance to improve. Keep building your streak and unlock your best self!</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 

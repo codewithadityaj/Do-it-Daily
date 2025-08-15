@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adult Progress - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #4CAF50;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4CAF50;
+    }
+    .progress-section {
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .progress-scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      min-width: 800px;
+    }
+    .progress-card {
+      background: white;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(44, 62, 80, 0.08);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      min-width: 350px;
+    }
+    .progress-card:hover {
+      transform: translateY(-10px);
+    }
+    .progress-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .progress-card:hover .progress-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .progress-title {
+      font-size: 1.2rem;
+      color: #4CAF50;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .progress-value {
+      font-size: 1.7rem;
+      color: #2c3e50;
+      margin: 20px 0 10px 0;
+      font-weight: bold;
+    }
+    .progress-description {
+      color: #6c757d;
+      margin: 10px 0 0 0;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .progress-grid {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+    }
+    .adult-footer {
+      background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 40px 0 30px 0;
+      margin-top: 60px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -4px 24px rgba(44, 62, 80, 0.08);
+    }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
+      margin-right: 10px;
+    }
+    .footer-title {
+      font-size: 1.7rem;
+      color: #2c3e50;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px rgba(44,62,80,0.05);
+    }
+    .footer-message {
+      font-size: 1.05rem;
+      color: #6c757d;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 400px;
+    }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-icon { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="adult-progress.html" class="active">Progress</a>
+      <a href="adult-challenges.html">Daily Challenges</a>
+      <a href="adult-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="progress-section">
+    <h1 class="section-title">Your Progress Overview</h1>
+    <div class="progress-scroll-container">
+      <div class="progress-grid">
+        <div class="progress-card">
+          <img src="images/Streak Adult.png" alt="Daily Streak" class="progress-icon">
+          <h2 class="progress-title">Daily Streak</h2>
+          <div class="progress-value">🔥 14 Days</div>
+          <p class="progress-description">Keep your streak going! Every day counts toward your goals.</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Task Adult.png" alt="Completed Tasks" class="progress-icon">
+          <h2 class="progress-title">Completed Tasks</h2>
+          <div class="progress-value">✅ 35</div>
+          <p class="progress-description">Tasks completed this week. Great productivity!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Point earn adult.png" alt="Points Earned" class="progress-icon">
+          <h2 class="progress-title">Points Earned</h2>
+          <div class="progress-value">⭐ 520</div>
+          <p class="progress-description">Points collected this month. Keep up the momentum!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Badges Adult.png" alt="Badges Collected" class="progress-icon">
+          <h2 class="progress-title">Badges Collected</h2>
+          <div class="progress-value">🏅 8</div>
+          <p class="progress-description">You've earned 8 badges so far. Aim for more!</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Long Adult.png" alt="Longest Streak" class="progress-icon">
+          <h2 class="progress-title">Longest Streak</h2>
+          <div class="progress-value">🔥 21 Days</div>
+          <p class="progress-description">Your longest streak ever. Can you beat it?</p>
+        </div>
+        <div class="progress-card">
+          <img src="images/Challenge Adult.png" alt="Challenges Completed" class="progress-icon">
+          <h2 class="progress-title">Challenges Completed</h2>
+          <div class="progress-value">🎯 45</div>
+          <p class="progress-description">Total challenges completed. Excellent work!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motivational Footer Section for Adults -->
+  <footer class="adult-footer">
+    <div class="footer-content">
+      
+      <div>
+        <h2 class="footer-title">Keep Moving Forward! 💼</h2>
+        <p class="footer-message">Consistency is the key to success. Every small habit brings you closer to your goals. Stay focused and keep achieving!</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 

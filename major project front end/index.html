@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Do It Daily - Level Up Your Life</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .hero-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      min-height: calc(100vh - 60px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #ffd700, #ffa500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .hero-image {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #45a049;
+      transform: translateY(-3px);
+    }
+
+    .features-section,
+    .security-section {
+      padding: 80px 20px;
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .features-grid,
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .features-section h2,
+    .security-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-description {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .feature-card,
+    .security-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature-card:nth-child(2),
+    .security-card:nth-child(2) {
+      margin-top: 40px;
+    }
+
+    .image-box {
+      width: 100%;
+      height: 150px;
+      background: #f0f0f0;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .image-box img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+    }
+
+    .content-box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: #f0f0f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+    }
+
+    .feature-icon img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .feature-title,
+    .security-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .feature-description,
+    .security-description {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #4CAF50;
+    }
+
+    .navbar a.active {
+      color: #4CAF50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="security.html">Security</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Level Up Your Life</h1>
+        <p class="hero-subtitle">Turn your daily tasks into an epic adventure. Complete quests, earn rewards, and watch your character grow!</p>
+        <a href="login.html" class="cta-button">Start Your Journey</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/habits.png" alt="Character Creation">
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>Why Login?</h2>
+    <div class="section-description">
+      <p>Access your personalized dashboard and continue building your habits.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="image-box">
+          <img src="images/Progress.png" alt="Track Progress">
+        </div>
+        <div class="content-box">
+          <h3 class="feature-title">Track Your Progress</h3>
+          <p class="feature-description">View your daily achievements and stay motivated with our gamified tracking system.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="image-box">
+          <img src="images/Calender.png" alt="Access Calendar">
+        </div>
+        <div class="content-box">
+          <h3 class="feature-title">Access Your Calendar</h3>
+          <p class="feature-description">Manage your habits and schedule effectively with our intuitive calendar system.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="image-box">
+          <img src="images/Analytics.png" alt="View Analytics">
+        </div>
+        <div class="content-box">
+          <h3 class="feature-title">View Analytics</h3>
+          <p class="feature-description">See your growth and improvement over time with detailed analytics and insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="security-section">
+    <h2>Secure Login Features</h2>
+    <div class="section-description">
+      <p>Your account is protected with industry-standard security measures.</p>
+    </div>
+    <div class="security-grid">
+      <div class="security-card">
+        <div class="image-box">
+          <img src="images/Secure Access.png" alt="Secure Access">
+        </div>
+        <div class="content-box">
+          <h3 class="security-title">Secure Access</h3>
+          <p class="security-description">Your data is encrypted and protected at all times with advanced security protocols.</p>
+        </div>
+      </div>
+      <div class="security-card">
+        <div class="image-box">
+          <img src="images/Recovery.png" alt="Quick Recovery">
+        </div>
+        <div class="content-box">
+          <h3 class="security-title">Quick Recovery</h3>
+          <p class="security-description">Easy password reset and account recovery options for your convenience.</p>
+        </div>
+      </div>
+      <div class="security-card">
+        <div class="image-box">
+          <img src="images/Privacy Control.png" alt="Privacy Control">
+        </div>
+        <div class="content-box">
+          <h3 class="security-title">Privacy Control</h3>
+          <p class="security-description">Manage your privacy settings and data preferences with complete control.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

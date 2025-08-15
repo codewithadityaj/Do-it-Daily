@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Features - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #4CAF50;
+    }
+
+    .navbar a.active {
+      color: #4CAF50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .features-section {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      padding: 80px 20px;
+      min-height: calc(100vh - 60px);
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.5s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .feature-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-list li {
+      padding: 8px 0;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 50px;
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+      .features-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html" class="active">Features</a>
+      <a href="security.html">Security</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="features-section">
+    <h1 class="section-title">Level Up Your Life</h1>
+    <div class="features-container">
+      <div class="feature-card">
+        <img src="images/Progress.png" alt="Progress Tracking" class="feature-icon">
+        <h2 class="feature-title">Progress Tracking</h2>
+        <p class="feature-description">Track your daily habits and see your progress over time with our intuitive dashboard.</p>
+        <ul class="feature-list">
+          <li>Daily habit tracking</li>
+          <li>Progress visualization</li>
+          <li>Achievement badges</li>
+          <li>Streak counting</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/Calender.png" alt="Smart Calendar" class="feature-icon">
+        <h2 class="feature-title">Smart Calendar</h2>
+        <p class="feature-description">Organize your tasks and schedule with our smart calendar system.</p>
+        <ul class="feature-list">
+          <li>Task scheduling</li>
+          <li>Reminder system</li>
+          <li>Priority management</li>
+          <li>Recurring tasks</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/Analytics.png" alt="Analytics" class="feature-icon">
+        <h2 class="feature-title">Analytics</h2>
+        <p class="feature-description">Get detailed insights into your habits and progress with advanced analytics.</p>
+        <ul class="feature-list">
+          <li>Performance metrics</li>
+          <li>Habit analysis</li>
+          <li>Progress reports</li>
+          <li>Goal tracking</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 

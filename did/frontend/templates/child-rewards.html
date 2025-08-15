@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rewards - Kids Zone</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #FF6B6B;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FF6B6B;
+    }
+    .rewards-section {
+      padding: 40px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #FF6B6B;
+      margin: 40px 0 20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .rewards-scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      min-width: 800px;
+    }
+    .reward-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(255, 182, 193, 0.15);
+      text-align: center;
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      min-width: 350px;
+    }
+    .reward-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .reward-card:hover::before {
+      transform: translateX(100%);
+    }
+    .reward-card:hover {
+      transform: translateY(-10px);
+    }
+    .reward-icon {
+      width: 120px;
+      height: 100px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s;
+    }
+    .reward-card:hover .reward-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .reward-title {
+      font-size: 1.5rem;
+      color: #FF6B6B;
+      margin-bottom: 15px;
+    }
+    .reward-points {
+      background: #FFD700;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .reward-description {
+      color: #666;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+    .reward-button {
+      background: #FF6B6B;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+      font-family: 'Comic Sans MS', cursive;
+    }
+    .reward-button:hover {
+      background: #FF5252;
+      transform: scale(1.05);
+    }
+    .points-balance {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      margin: 20px 0;
+    }
+    .points-value {
+      color: #FF6B6B;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .rewards-grid {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="child-progress.html">Progress</a>
+      <a href="child-challenges.html">Daily Challenges</a>
+      <a href="child-rewards.html" class="active">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="rewards-section">
+    <h1 class="section-title">Your Rewards Collection! 🎁</h1>
+    <div class="points-balance">
+      Your Points Balance: <span class="points-value">250</span> ⭐
+    </div>
+    
+    <div class="rewards-scroll-container">
+      <div class="rewards-grid">
+        <div class="reward-card">
+          <img src="images/Star.png" alt="Super Star Badge" class="reward-icon">
+          <h2 class="reward-title">Super Star Badge</h2>
+          <div class="reward-points">100 Points</div>
+          <p class="reward-description">Get this shiny badge for completing 7 days of challenges!</p>
+          <button class="reward-button">Claim Reward! 🎯</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Playing.png" alt="Extra Play Time" class="reward-icon">
+          <h2 class="reward-title">Extra Play Time</h2>
+          <div class="reward-points">150 Points</div>
+          <p class="reward-description">Unlock 30 minutes of extra game time!</p>
+          <button class="reward-button">Get Play Time! 🎮</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Theme.png" alt="Special Theme" class="reward-icon">
+          <h2 class="reward-title">Special Theme</h2>
+          <div class="reward-points">200 Points</div>
+          <p class="reward-description">Unlock a cool new theme for your profile!</p>
+          <button class="reward-button">Get Theme! 🎨</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Sticker.png" alt="Sticker Pack" class="reward-icon">
+          <h2 class="reward-title">Sticker Pack</h2>
+          <div class="reward-points">80 Points</div>
+          <p class="reward-description">Collect a fun pack of digital stickers!</p>
+          <button class="reward-button">Get Stickers! 🏷️</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/Avtar.png" alt="Avatar Outfit" class="reward-icon">
+          <h2 class="reward-title">Avatar Outfit</h2>
+          <div class="reward-points">120 Points</div>
+          <p class="reward-description">Dress up your avatar with a new outfit!</p>
+          <button class="reward-button">Get Outfit! 👕</button>
+        </div>
+        <div class="reward-card">
+          <img src="images/SupriseBox.png" alt="Surprise Box" class="reward-icon">
+          <h2 class="reward-title">Surprise Box</h2>
+          <div class="reward-points">180 Points</div>
+          <p class="reward-description">Open a box for a random surprise reward!</p>
+          <button class="reward-button">Open Box! 🎁</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html> 

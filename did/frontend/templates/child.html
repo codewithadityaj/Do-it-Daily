@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kids Zone - Do It Daily</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .navbar {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #4CAF50;
+    }
+
+    .navbar a.active {
+      color: #4CAF50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .child-section {
+      background: linear-gradient(135deg, #FFE5E5 0%, #FFF0E5 100%);
+      min-height: calc(100vh - 60px);
+      padding: 40px 20px;
+    }
+
+    .child-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .fun-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .fun-card:nth-child(1) { animation-delay: 0s; }
+    .fun-card:nth-child(2) { animation-delay: 0.2s; }
+    .fun-card:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .fun-card:hover {
+      transform: translateY(-15px) scale(1.02);
+    }
+
+    .fun-icon {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .fun-card:hover .fun-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .fun-title {
+      font-size: 1.8rem;
+      color: #FF6B6B;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .fun-description {
+      color: #666;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .fun-button {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      padding: 12px;
+      background: #FF6B6B;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .fun-button:hover {
+      background: #FF5252;
+      transform: scale(1.05);
+    }
+
+    .bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: bubble 4s ease-in-out infinite;
+    }
+
+    .bubble:nth-child(1) { width: 50px; height: 50px; top: 10%; left: 10%; animation-delay: 0s; }
+    .bubble:nth-child(2) { width: 30px; height: 30px; top: 20%; right: 20%; animation-delay: 1s; }
+    .bubble:nth-child(3) { width: 40px; height: 40px; bottom: 15%; left: 15%; animation-delay: 2s; }
+
+    @keyframes bubble {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.1); }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      color: #FF6B6B;
+      margin-bottom: 40px;
+      font-family: 'Comic Sans MS', cursive;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    @media (max-width: 768px) {
+      .child-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    .child-footer {
+      background: linear-gradient(90deg, #FFE5E5 0%, #FFF0E5 100%);
+      padding: 40px 0 30px 0;
+      margin-top: 60px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      box-shadow: 0 -4px 24px rgba(255, 182, 193, 0.10);
+    }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-mascot {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(255, 182, 193, 0.15);
+      margin-right: 10px;
+    }
+    .footer-title {
+      font-size: 2rem;
+      color: #FF6B6B;
+      font-family: 'Comic Sans MS', cursive;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+    }
+    .footer-message {
+      font-size: 1.1rem;
+      color: #666;
+      font-family: 'Comic Sans MS', cursive;
+      max-width: 400px;
+    }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-mascot { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Do It Daily</div>
+    <nav>
+      <a href="child-progress.html">Progress</a>
+      <a href="child-challenges.html">Daily Challenges</a>
+      <a href="child-rewards.html">Rewards</a>
+    </nav>
+  </header>
+
+  <section class="child-section">
+    <h1 class="section-title">Welcome to Kids Zone! 🎮</h1>
+    <p class="section-subtitle">Let's make learning fun with exciting adventures and cool rewards!</p>
+    <div class="child-container">
+      <div class="fun-card">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <img src="images/Tracking.png" alt="Progress Tracking" class="fun-icon">
+        <h2 class="fun-title">Progress Tracking</h2>
+        <p class="fun-description">See your daily progress and keep your streaks going strong! Watch your growth every day.</p>
+        <a href="child-progress.html" class="fun-button">View Progress 📈</a>
+      </div>
+      <div class="fun-card">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <img src="images/Daily Challenges.png" alt="Daily Challenges" class="fun-icon">
+        <h2 class="fun-title">Daily Challenges</h2>
+        <p class="fun-description">Take on fun daily quests and earn badges! Every day is a new adventure.</p>
+        <a href="child-challenges.html" class="fun-button">See Challenges ⭐</a>
+      </div>
+      <div class="fun-card">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <img src="images/Rewards.png" alt="Rewards" class="fun-icon">
+        <h2 class="fun-title">Rewards</h2>
+        <p class="fun-description">Earn points and unlock awesome rewards for your hard work and dedication!</p>
+        <a href="child-rewards.html" class="fun-button">See Rewards 🎁</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playful Footer Section -->
+  <footer class="child-footer">
+    <div class="footer-content">
+     
+      <div>
+        <h2 class="footer-title">Keep Going, Habit Hero! 🌟</h2>
+        <p class="footer-message">Every small step you take brings you closer to your goals. Come back tomorrow for more fun and rewards!</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
